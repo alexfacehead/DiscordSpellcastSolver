@@ -66,7 +66,7 @@ After installing the required dependencies, you can use the Spellcast Solver as 
 python spellcast_solver.py
 ```
 
-The script will prompt you to enter the grid of letters and the special character index. It will then generate the highest-scoring word based on the given input.
+The script will prompt you to enter the grid of letters and the special character index (ZERO INDEX BASED! SUBTRACT 1 FROM THE CHARACTER'S POSITION). It will then generate the highest-scoring word based on the given input.
 
 ## Contributing
 
