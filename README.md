@@ -82,7 +82,7 @@ Please adhere to the project's coding style and conventions, and provide clear, 
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md). Please read the license file for more information.
+This project is licensed under the [MIT License](LICENSE). Please read the license file for more information.
 
 ## Contact
 
