@@ -79,7 +79,7 @@ def build_trie(words):
 
 def dfs(grid, trie_node, i, j, current_word, words, path, special_index):
     """Depth-first search to generate words from the grid."""
-    if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == '#':
+    if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == "#":
         return
 
     letter = grid[i][j]
@@ -94,7 +94,7 @@ def dfs(grid, trie_node, i, j, current_word, words, path, special_index):
         score = calculate_score(current_word, LETTER_VALUES, special_index, path)
         words.add((current_word, score))
 
-    grid[i][j] = '#'  # Mark as visited
+    grid[i][j] = "#"  # Mark as visited
     for x, y in [(i-1, j), (i+1, j), (i, j-1), (i, j+1), (i-1, j-1), (i-1, j+1), (i+1, j-1), (i+1, j+1)]:
         dfs(grid, trie_node, x, y, current_word, words, path, special_index)
     grid[i][j] = letter  # Restore the letter
@@ -125,7 +125,7 @@ def find_highest_scoring_word(grid, trie, special_index):
 
 def contains_special_character(word, special_index):
     """Check if the word contains the special character at the specified index."""
-    return len(word) > special_index and word[special_index] == 'e'
+    return len(word) > special_index and word[special_index] == "e"
 
 
 def calculate_score(word, letter_values, special_index, path):
@@ -140,12 +140,16 @@ def calculate_score(word, letter_values, special_index, path):
 def get_user_input_grid(size):
     """Get the grid input from the user."""
     grid = []
-    print(f"Enter the letters for the {size}x{size} grid in a single line:")
+    print(f"Enter all 25 letters for the {size}x{size} grid in a single line:")
     print()
-    print(colored(f"ENTER LETTERS HERE: ", 'red'))
+    print(colored(f"ENTER LETTERS HERE: ", "magenta"))
     letters = input().strip().lower()
-    if len(letters) != size * size:
-        raise ValueError("Invalid input length. Please enter the correct number of letters.")
+    if letters.lower() == "q" or letters.lower() == "quit" or letters.lower() == "exit":
+        print(colored("User ended program.", "red"))
+        exit(0)
+    elif len(letters) != size * size:
+        print(colored("Invalid input length. Please enter the correct number of letters.", "red"))
+        get_user_input_grid(GRID_SIZE)
     for i in range(size):
         row = list(letters[i*size:(i+1)*size])
         grid.append(row)
@@ -169,7 +173,7 @@ def main():
 
         # Ask the user if they want to continue generating words
         user_input = input("Do you want to continue generating words? (y/n): ").strip().lower()
-        if user_input != 'y':
+        if user_input.lower() != "y":
             break
 
 if __name__ == "__main__":
