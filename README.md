@@ -68,6 +68,8 @@ python spellcast_solver.py
 
 The script will prompt you to enter the grid of letters and the special character index (ZERO INDEX BASED! SUBTRACT 1 FROM THE CHARACTER'S POSITION). It will then generate the highest-scoring word based on the given input.
 
+If the word is not recognized by spellcast, simply continue with generating words by entering "y" and it will generate the next best word.
+
 ## Contributing
 
 If you want to contribute to the project, please follow these steps:

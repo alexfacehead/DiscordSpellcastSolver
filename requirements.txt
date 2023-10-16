@@ -1,1 +1,2 @@
 english_words=2.0.1
+termcolor=2.3.0

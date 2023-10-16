@@ -1,4 +1,5 @@
 from english_words import get_english_words_set
+from termcolor import colored
 
 # Constants
 GRID_SIZE = 5
@@ -140,6 +141,8 @@ def get_user_input_grid(size):
     """Get the grid input from the user."""
     grid = []
     print(f"Enter the letters for the {size}x{size} grid in a single line:")
+    print()
+    print(colored(f"ENTER LETTERS HERE: ", 'red'))
     letters = input().strip().lower()
     if len(letters) != size * size:
         raise ValueError("Invalid input length. Please enter the correct number of letters.")
